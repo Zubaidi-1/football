@@ -22,7 +22,7 @@ export default function Fixture(props) {
         >
           {props.time}
         </p>
-        <p className={` ${props.elapsed ? "ml-1" : "ml-16 mt-2"} `}>
+        <p className={` ${props.elapsed ? "ml-1" : "ml-11 mt-2"} `}>
           {props.score ? props.score : "0 - 0"}
         </p>
       </div>
