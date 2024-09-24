@@ -17,12 +17,12 @@ export default function Fixture(props) {
       <div className="justify-self-center self-start mt-16 ml-12">
         <p
           className={
-            props.time == "FT'" || props.time.length <= 3 ? "ml-3" : "ml-0"
+            props.time == "FT'" || props.time.length <= 3 ? "ml-3" : "ml-2"
           }
         >
           {props.time}
         </p>
-        <p className={` ${props.elapsed ? "ml-1" : "ml-10 mt-2"} `}>
+        <p className={` ${props.elapsed ? "ml-1" : "ml-16 mt-2"} `}>
           {props.score ? props.score : "0 - 0"}
         </p>
       </div>
@@ -42,7 +42,7 @@ export default function Fixture(props) {
         transition={{ duration: 0.3, type: "spring", damping: 8 }}
         className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-white w-32 p-2 rounded-md"
       >
-        <Link to={`/fixtures/${props.fixtureID}`}> Details</Link>
+        <Link to={`/football/fixtures/${props.fixtureID}`}> Details</Link>
       </motion.button>
     </motion.div>
   );

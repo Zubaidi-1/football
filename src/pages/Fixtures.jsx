@@ -9,8 +9,8 @@ export default function Fixtures(props) {
   const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
-      navigate("/fixtures", { replace: true }); // Trigger route reload every minute
-    }, 60000); // Refetch every 60 seconds
+      navigate("/football/fixtures", { replace: true }); // Trigger route reload every minute
+    }, 240000); // Refetch every 60 seconds
 
     return () => clearInterval(interval); // Cleanup
   }, [navigate]);

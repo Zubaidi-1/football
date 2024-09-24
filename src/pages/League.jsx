@@ -58,7 +58,10 @@ export default function League() {
             }}
             className="justify-self-center"
           >
-            <Link to={`/leagues/${league.league.id}`} key={league.league.id}>
+            <Link
+              to={`/football/leagues/${league.league.id}`}
+              key={league.league.id}
+            >
               <img className="w-24" src={league.league.logo} />
             </Link>
           </motion.div>

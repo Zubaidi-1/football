@@ -29,7 +29,7 @@ export default function Home() {
         }}
         className="bg-[#006400] text-1xl text-white  p-2 rounded-full w-24 ml-20 mt-4"
       >
-        <Link to={"/Fixtures"}>Live Scores</Link>
+        <Link to={"/football/fixtures"}>Live Scores</Link>
       </motion.button>
     </motion.div>
   );

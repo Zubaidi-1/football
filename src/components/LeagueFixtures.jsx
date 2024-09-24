@@ -9,8 +9,8 @@ export default function LeagueFixtures(props) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      navigate(`/leagues/${leagueID}`, { replace: true }); // Trigger route reload every minute
-    }, 60000); // Refetch every 60 seconds
+      navigate(`/football/leagues/${leagueID}`, { replace: true }); // Trigger route reload every minute
+    }, 2400000); // Refetch every 3 minutes
 
     return () => clearInterval(interval); // Cleanup
   }, [navigate]);

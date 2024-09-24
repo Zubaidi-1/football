@@ -4,8 +4,8 @@ export default function () {
   return (
     <>
       <ul className="relative flex justify-end gap-5 p-2  bg-[#006400] min-w-full text-[white] z-40">
-        <Link to={"/fixtures"}>Live scores</Link>
-        <Link className="mr-5" to={"/leagues"}>
+        <Link to={"/football/fixtures"}>Live scores</Link>
+        <Link className="mr-5" to={"/football/leagues"}>
           Leagues
         </Link>
       </ul>
