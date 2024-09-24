@@ -1,38 +1,23 @@
-import { useLoaderData } from "react-router-dom";
-import Fixture from "../components/Fixture";
-import SideBar from "../components/SideBar";
-import Dates from "../components/Dates";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-export default function Fixtures(props) {
-  let fixtures = useLoaderData();
+import Fixture from "./Fixture";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+export default function LeagueFixtures(props) {
+  console.log(props.fixturesByLeague.response, "fixturesByLeague");
   const navigate = useNavigate();
+  const { leagueID } = useParams();
+  console.log(leagueID, "id");
+
   useEffect(() => {
     const interval = setInterval(() => {
-      navigate("/fixtures", { replace: true }); // Trigger route reload every minute
+      navigate(`/leagues/${leagueID}`, { replace: true }); // Trigger route reload every minute
     }, 60000); // Refetch every 60 seconds
 
     return () => clearInterval(interval); // Cleanup
   }, [navigate]);
-  // filtering data to show only the top 5 leagues and CL , bpl:39, bundesliga: 78, seria A: 135, la liga: 140, fra:61, CL:2
-  fixtures = fixtures?.filter(
-    (item) =>
-      item.league.id == 39 ||
-      item.league.id == 61 ||
-      item.league.id == 78 ||
-      item.league.id == 135 ||
-      item.league.id == 140 ||
-      item.league.id == 2
-  );
-  console.log("fixtures", fixtures);
-  let date = new Date();
-  date = date.toISOString().split("T")[0];
-
-  const [value, setValue] = useState(date);
   return (
-    <div className="flex min-w-screen min-h-screen flex-col justify-center items-center mb-8">
-      {fixtures.length > 0 ? (
-        fixtures.map((fixture) => {
+    <>
+      <div className="flex min-w-screen min-h-screen flex-col justify-center items-center mb-8">
+        {props.fixturesByLeague.response.map((fixture) => {
           // checking the status of the game, if its finished/started/ has not started to render different times and scores
           let time;
           let score;
@@ -71,20 +56,8 @@ export default function Fixtures(props) {
               elapsed={fixture.fixture.status.elapsed}
             />
           );
-        })
-      ) : (
-        <p>No matches found</p>
-      )}
-
-      <SideBar
-        value={value}
-        setDate={setValue}
-        leagues={props.leagues}
-        setUrl={props.setUrl}
-      />
-      <div className="fixed right-4 top-20">
-        <Dates value={value} setValue={setValue} setUrl={props.setUrl} />
+        })}
       </div>
-    </div>
+    </>
   );
 }

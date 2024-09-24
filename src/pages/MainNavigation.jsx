@@ -3,10 +3,11 @@ import { Link, Outlet } from "react-router-dom";
 export default function () {
   return (
     <>
-      <ul className="flex justify-end gap-5 p-2 mr-4 bg-[#006400] min-w-full text-[white]">
+      <ul className="relative flex justify-end gap-5 p-2  bg-[#006400] min-w-full text-[white] z-40">
         <Link to={"/fixtures"}>Live scores</Link>
-        <Link>Leagues</Link>
-        <Link className="mr-4">Teams</Link>
+        <Link className="mr-5" to={"/leagues"}>
+          Leagues
+        </Link>
       </ul>
       <Outlet />
     </>
