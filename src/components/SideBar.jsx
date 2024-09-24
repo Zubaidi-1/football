@@ -13,11 +13,7 @@ export default function SideBar(props) {
       [id]: !prevState[id],
     }));
   };
-  // const formattedDate = props.value.toISOString().split("T")[0];
 
-  // console.log(formattedDate, "date");
-
-  const dateRef = useRef();
   return (
     <div className="fixed flex top-0 left-0 z-20 justify-center items-center min-h-screen w-52 bg-[#9bacb6] text-slate-800]">
       <div>
@@ -44,8 +40,6 @@ export default function SideBar(props) {
                 <div className="ml-3 mt-2">
                   <a
                     onClick={() => {
-                      console.log(league.leagueID);
-
                       props.setUrl(
                         `  https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${props.value}&league=${league.leagueID}&season=2024`
                       );
@@ -65,7 +59,6 @@ export default function SideBar(props) {
                 `https://api-football-v1.p.rapidapi.com/v3/fixtures?date=${today}`
               );
               props.setDate(today);
-              console.log(props.value, "vala");
             }}
             className="bg-slate-800 p-2 rounded-md text-white "
           >

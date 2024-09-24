@@ -11,7 +11,7 @@ import MainNavigation from "./pages/MainNavigation";
 import Fixtures from "./pages/Fixtures";
 import League from "./pages/League";
 import Standings from "./pages/Standings";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MatchDetails from "./pages/MatchDetails";
 function App() {
   const newDate = new Date();
@@ -19,7 +19,7 @@ function App() {
 
   const leagues = {
     bpl: {
-      league: "Priemer League",
+      league: "Premier League",
       leagueID: "39",
       country: "England",
       icon: <GB className="w-9" title="England" />,

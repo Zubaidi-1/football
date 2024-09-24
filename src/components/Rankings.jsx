@@ -10,9 +10,9 @@ export default function Rankings(props) {
               : "grid-cols-[50px_500px_50px_50px_50px_200px]"
           } p-2 gap-10 justify-center items-center mr-7 `}
         >
+          <th>Ranking</th>
+          <th className="place-self-start ml-5">Team</th>
           <th>Points</th>
-          <th className="place-self-start ml-5">Player</th>
-          <th>Goals</th>
           <th>Played</th>
           <th className="mr-2">GD</th>
           {props.standings ? null : (
