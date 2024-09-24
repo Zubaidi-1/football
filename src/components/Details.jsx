@@ -1,13 +1,22 @@
 import { useState } from "react";
 import Stats from "./Stats";
 import LineUps from "./lineUps";
-
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 export default function Details(props) {
   console.log(props.details.fixture.date.slice(11, 16), "dada");
-
+  const { fixtureID } = useParams();
   // to control what shows, goals and stats or linups
   const [goals, setGoals] = useState(true);
   const [linups, setLineups] = useState(false);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      navigate(`/football/fixtures/${fixtureID}`, { replace: true }); // Trigger route reload every 3 minutes
+    }, 240000); // Refetch every 60 seconds
+
+    return () => clearInterval(interval); // Cleanup
+  }, [navigate]);
 
   return (
     <div className="flex flex-col gap-10 justify-center items-center min-h-screen mt-36 ">
