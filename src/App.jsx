@@ -71,9 +71,9 @@ function App() {
       path: "/football/",
       element: <MainNavigation />,
       children: [
-        { path: "/", element: <Home /> },
+        { path: "", element: <Home /> },
         {
-          path: "/vite-react-router/fixtures",
+          path: "/football/fixtures",
           element: <Fixtures leagues={leagues} url={url} setUrl={setUrl} />,
           loader: async () => {
             try {
@@ -93,12 +93,12 @@ function App() {
           },
         },
         {
-          path: "/vite-react-router/fixtures/:fixtureID",
+          path: "/football/fixtures/:fixtureID",
           element: <MatchDetails />,
         },
-        { path: "/vite-react-router/leagues", element: <League /> },
+        { path: "/football/leagues", element: <League /> },
         {
-          path: "/vite-react-router/leagues/:leagueID",
+          path: "/football/leagues/:leagueID",
           element: <Standings />,
           loader: async ({ params }) => {
             const { leagueID } = params; // Get the leagueID from URL params
