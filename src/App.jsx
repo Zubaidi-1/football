@@ -68,10 +68,10 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/vite-react-router/",
+      path: "/football/",
       element: <MainNavigation />,
       children: [
-        { path: "/vite-react-router/", element: <Home /> },
+        { path: "/", element: <Home /> },
         {
           path: "/vite-react-router/fixtures",
           element: <Fixtures leagues={leagues} url={url} setUrl={setUrl} />,
