@@ -68,12 +68,12 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/vite-react-router/",
       element: <MainNavigation />,
       children: [
         { path: "/vite-react-router", element: <Home /> },
         {
-          path: "/fixtures",
+          path: "/vite-react-router/fixtures",
           element: <Fixtures leagues={leagues} url={url} setUrl={setUrl} />,
           loader: async () => {
             try {
@@ -93,12 +93,12 @@ function App() {
           },
         },
         {
-          path: "/fixtures/:fixtureID",
+          path: "/vite-react-router/fixtures/:fixtureID",
           element: <MatchDetails />,
         },
-        { path: "/leagues", element: <League /> },
+        { path: "/vite-react-router/leagues", element: <League /> },
         {
-          path: "/leagues/:leagueID",
+          path: "/vite-react-router/leagues/:leagueID",
           element: <Standings />,
           loader: async ({ params }) => {
             const { leagueID } = params; // Get the leagueID from URL params
