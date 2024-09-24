@@ -71,7 +71,7 @@ function App() {
       path: "/vite-react-router/",
       element: <MainNavigation />,
       children: [
-        { path: "/vite-react-router", element: <Home /> },
+        { path: "/vite-react-router/", element: <Home /> },
         {
           path: "/vite-react-router/fixtures",
           element: <Fixtures leagues={leagues} url={url} setUrl={setUrl} />,
