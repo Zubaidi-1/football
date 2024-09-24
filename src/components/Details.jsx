@@ -17,12 +17,12 @@ export default function Details(props) {
         <p className="text-xl">Referee : {props.details.fixture.referee}</p>
         <p className="text-xl">{props.details.fixture.venue.name}</p>
       </div>
-      <div className="flex gap-40 ml-12 rounded-2xl bg-[#ebf2fa] shadow-md shadow-[#70e000] p-6  min-w-[750px] justify-center items-center">
+      <div className="flex gap-40 ml-0 rounded-2xl bg-[#ebf2fa] shadow-md shadow-[#70e000] p-6  min-w-[750px] justify-center items-center">
         <div className=" flex flex-col justify-center items-center">
           <p>{props.details.teams.home.name}</p>
           <img className="w-24 mt-8" src={props.details.teams.home.logo} />
         </div>
-        <div className="justify-self-center">
+        <div className="self-center mb-10">
           <p>{props.details.fixture.date.slice(11, 16)}</p>
           <p className="ml-1">{`${
             props.details.goals.home ? props.details.goals.home : 0
