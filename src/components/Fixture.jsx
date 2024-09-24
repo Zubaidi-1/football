@@ -14,7 +14,7 @@ export default function Fixture(props) {
         <img className="w-24 h-24" src={props.homeIcon} />
         <p>{props.home}</p>
       </div>
-      <div className="justify-self-center self-start mt-16 ml-11">
+      <div className="justify-self-center self-start mt-16 ml-12">
         <p
           className={
             props.time == "FT'" || props.time.length <= 3 ? "ml-3" : "ml-2"
