@@ -12,7 +12,7 @@ export default function Details(props) {
   const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
-      navigate(`/football/fixtures/${fixtureID}`, { replace: true }); // Trigger route reload every 3 minutes
+      navigate(`/football/fixtures/${fixtureID}`, { replace: true }); // Trigger route reload every 4 minutes
     }, 240000); // Refetch every 60 seconds
 
     return () => clearInterval(interval); // Cleanup
