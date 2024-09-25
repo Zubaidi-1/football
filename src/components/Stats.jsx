@@ -1,7 +1,13 @@
-import { useState } from "react";
 import { IoMdFootball } from "react-icons/io";
+import { TbRectangleVerticalFilled } from "react-icons/tb";
+
 export default function Stats(props) {
+  let goal = false;
   let penalty = false;
+  let ownGoal = false;
+  let yellow = false;
+  let red = false;
+  console.log(props.events, "events");
 
   return (
     <>
@@ -10,21 +16,53 @@ export default function Stats(props) {
           <div>
             {props.events?.map((event) => {
               if (
-                event.type == "Goal" &&
-                event.detail != "Penalty Missed" &&
-                event.team.name == props.home
+                (event.type == "Goal" &&
+                  event.detail != "Penalty Missed" &&
+                  event.team.name == props.home) ||
+                (event.type == "Card" && event.team.name == props.home)
               ) {
+                if (event.type == "Goal") {
+                  goal = true;
+                } else {
+                  goal = false;
+                }
+
                 if (event.detail == "Penalty") {
                   penalty = true;
                 } else {
                   penalty = false;
                 }
+                if (event.detail == "Own Goal") {
+                  ownGoal = true;
+                } else {
+                  ownGoal = false;
+                }
+                if (event.detail == "Yellow Card") {
+                  yellow = true;
+                } else {
+                  yellow = false;
+                }
+                if (event.detail == "Red Card") {
+                  red = true;
+                } else {
+                  red = false;
+                }
                 return (
                   <div className="flex gap-7 items-center mt-3">
-                    <IoMdFootball className="mt-1" />
+                    {goal && <IoMdFootball className="mt-1" />}
+                    {yellow && (
+                      <TbRectangleVerticalFilled
+                        color="yellow"
+                        className="mt-1"
+                      />
+                    )}
+                    {red && (
+                      <TbRectangleVerticalFilled color="red" className="mt-1" />
+                    )}
 
                     <p>
-                      {event.player.name} {penalty ? "(Penalty)" : null}
+                      {event.player.name} {penalty ? "(Penalty)" : null}{" "}
+                      {ownGoal ? "(Own Goal)" : null}
                     </p>
                     <p>{`${event.time.elapsed}'`}</p>
                   </div>
@@ -62,18 +100,49 @@ export default function Stats(props) {
             {/* away team goals */}
             {props.events?.map((event) => {
               if (
-                event.type == "Goal" &&
-                event.detail != "Penalty Missed" &&
-                event.team.name == props.away
+                (event.type == "Goal" &&
+                  event.detail != "Penalty Missed" &&
+                  event.team.name == props.home) ||
+                (event.type == "Card" && event.team.name == props.away)
               ) {
+                if (event.type == "Goal") {
+                  goal = true;
+                } else {
+                  goal = false;
+                }
+
                 if (event.detail == "Penalty") {
                   penalty = true;
                 } else {
                   penalty = false;
                 }
+                if (event.detail == "Own Goal") {
+                  ownGoal = true;
+                } else {
+                  ownGoal = false;
+                }
+                if (event.detail == "Yellow Card") {
+                  yellow = true;
+                } else {
+                  yellow = false;
+                }
+                if (event.detail == "Red Card") {
+                  red = true;
+                } else {
+                  red = false;
+                }
                 return (
                   <div className="flex gap-7 items-center mt-3">
-                    <IoMdFootball className="mt-1" />
+                    {goal && <IoMdFootball className="mt-1" />}
+                    {yellow && (
+                      <TbRectangleVerticalFilled
+                        color="yellow"
+                        className="mt-1"
+                      />
+                    )}
+                    {red && (
+                      <TbRectangleVerticalFilled color="red" className="mt-1" />
+                    )}
 
                     <p>
                       {event.player.name} {penalty ? "(Penalty)" : null}
