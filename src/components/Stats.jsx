@@ -102,7 +102,7 @@ export default function Stats(props) {
               if (
                 (event.type == "Goal" &&
                   event.detail != "Penalty Missed" &&
-                  event.team.name == props.home) ||
+                  event.team.name == props.away) ||
                 (event.type == "Card" && event.team.name == props.away)
               ) {
                 if (event.type == "Goal") {
